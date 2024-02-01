@@ -39,7 +39,7 @@ function findIt(needle, haystack) {
 1. Drag the Global Script called "TextBoxType" into the Page.Load event handler
 
 # Styling
-This module does not come with any deafult styling. Below are examples of how TextBoxes using this module can be styled
+This module does not come with any default styling. Below are examples of how TextBoxes using this module can be styled
 
 ## Applying the CSS
 
