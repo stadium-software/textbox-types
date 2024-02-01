@@ -29,11 +29,11 @@ function findIt(needle, haystack) {
 ## Page Setup
 1. Drag *TextBox* control to a page
 2. Add a class that begins with "stadium-input-type-" and ends with the desired [type](https://www.w3schools.com/html/html_form_input_types.asp) to the control classes property, for example
-   1. stadium-input-type-*time*
-   2. stadium-input-type-*datetime-local*
-   3. stadium-input-type-*week*
-   4. stadium-input-type-*month*
-   5. stadium-input-type-*color*
+   1. stadium-input-type-**time**
+   2. stadium-input-type-**datetime-local**
+   3. stadium-input-type-**week**
+   4. stadium-input-type-**month**
+   5. stadium-input-type-**color**
 
 ## Page.Load Setup
 1. Drag the Global Script called "TextBoxType" into the Page.Load event handler
