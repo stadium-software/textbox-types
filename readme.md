@@ -59,7 +59,7 @@ input[type="datetime-local"] {
 }
 /*Parent Controls*/
 .text-box-container:has(input[type="hidden"]) {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 ```
