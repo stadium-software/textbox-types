@@ -15,7 +15,7 @@ Input fields can be created using a variety of types, including time, datetime, 
 3. Drag a *JavaScript* action into the script
 4. Add the Javascript below into the JavaScript code property
 ```javascript
-/* Stadium Script Version 1.0 */
+/* Stadium Script Version 1.0 https://github.com/stadium-software/textbox-types */
 let classname = "stadium-input-type-";
 let fields = document.querySelectorAll('[class*="' + classname + '"]');
 for (let i = 0; i < fields.length; i++) {
