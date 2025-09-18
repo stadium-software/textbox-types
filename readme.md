@@ -1,11 +1,16 @@
-# TextBox Types
+# TextBox Types and Modes
 
 Input fields can be created using a variety of types, including time, datetime, week, month or colour. When displayed in the browser, some of these types come with built-in controls that make the data collection easy for users. This module allows you to convert the standard Stadium TextBox control into any of these types. [Read more](https://www.w3schools.com/html/html_form_input_types.asp)
+
+Input fields can also be defined to have two different input modes, namely `numeric` or `email`. When set to one of these, mobile devices adjust the keyboard shown ot the user accordingly. 
 
  https://github.com/stadium-software/textbox-types/assets/2085324/7854e18e-df60-4e1b-99a5-7fd1b8032395
 
 # Version 
-1.0 Initial
+1.1 Initial
+
+## Changes
+1.1 Added support for input modes
 
 ## Application Setup
 1. Check the *Enable Style Sheet* checkbox in the application properties
@@ -13,23 +18,31 @@ Input fields can be created using a variety of types, including time, datetime, 
 ## Global Script Setup
 1. Create a Global Script called "TextBoxType"
 3. Drag a *JavaScript* action into the script
-4. Add the Javascript below into the JavaScript code property
+4. Add the Javascript below unchanged into the JavaScript code property
 ```javascript
-/* Stadium Script Version 1.0 https://github.com/stadium-software/textbox-types */
-let classname = "stadium-input-type-";
-let fields = document.querySelectorAll('[class*="' + classname + '"]');
-for (let i = 0; i < fields.length; i++) {
-    let arr = fields[i].getAttribute("class").split(" ");
-    let type = findIt(classname, arr);
-    fields[i].querySelector("input").setAttribute("type", type.replace(classname, ""));
-}
-function findIt(needle, haystack) {
-	return haystack.find((el) => el.startsWith(needle));
-}
+/* Stadium Script Version 1.1 https://github.com/stadium-software/textbox-types */
+const INPUT_TYPE_PREFIX = "stadium-input-type-";
+const INPUT_MODE_PREFIX = "stadium-input-mode-";
+const fields = document.querySelectorAll(`[class*="${INPUT_TYPE_PREFIX}"], [class*="${INPUT_MODE_PREFIX}"]`);
+fields.forEach((field) => {
+    const input = field.querySelector("input");
+    if (!input) return; // Guard clause
+    const classes = field.className.split(" ");
+    const typeClass = classes.find((cls) => cls.startsWith(INPUT_TYPE_PREFIX));
+    if (typeClass) {
+        input.type = typeClass.replace(INPUT_TYPE_PREFIX, "");
+    }
+    const modeClass = classes.find((cls) => cls.startsWith(INPUT_MODE_PREFIX));
+    if (modeClass) {
+        input.inputMode = modeClass.replace(INPUT_MODE_PREFIX, "");
+    }
+});
 ```
 
 ## Page Setup
 1. Drag *TextBox* control to a page
+
+### TextBox Types
 2. Add a class that begins with "stadium-input-type-" and ends with the desired [type](https://www.w3schools.com/html/html_form_input_types.asp) to the control classes property, for example
    1. stadium-input-type-**time**
    2. stadium-input-type-**datetime-local**
@@ -37,31 +50,11 @@ function findIt(needle, haystack) {
    4. stadium-input-type-**month**
    5. stadium-input-type-**color**
 
+### Input Modes
+3. Add a class that begins with "stadium-input-mode-" and ends with the desired [mode](https://www.w3schools.com/TAgs/att_inputmode.asp) to the control classes property, for example
+   1. stadium-input-type-**numeric**
+   2. stadium-input-type-**email**
+
 ## Page.Load Setup
 1. Drag the Global Script called "TextBoxType" into the Page.Load event handler
 
-# Styling
-This module does not come with any default styling. Below are examples of how TextBoxes using this module can be styled
-
-## Applying the CSS
-
-To apply styling to the TextBoxes, change the CSS below as required and paste it into the StyleSheet element in your Stadium application
-```css
-/*Colour Controls*/
-input[type="color"] {
-    width: 40px;
-}
-/*Time Controls*/
-input[type="time"] {
-    width: 92px;
-}
-/*DateTime Controls*/
-input[type="datetime-local"] {
-    width: 170px;
-}
-/*Parent Controls*/
-.text-box-container:has(input[type="hidden"]) {
-    padding: 0;
-    margin: 0;
-}
-```
