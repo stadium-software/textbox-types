@@ -1,8 +1,8 @@
 # TextBox Types and Input Modes
 
-Input fields can be created using a variety of types, including `time`, `datetime`, `week`, `month` or `colour`. When displayed in the browser, some of these types come with built-in controls that make the data collection easy for users. This module allows you to convert the standard Stadium TextBox control into any of these types. [Read more](https://www.w3schools.com/html/html_form_input_types.asp)
+Input fields can be created using a variety of types, including `time`, `datetime`, `week`, `month` or `colour`. When displayed in the browser, some of these types come with built-in controls that make the data collection easy for users. This module allows you to convert the standard Stadium TextBox control into any of these types. [Read More On TextBox Types](https://www.w3schools.com/html/html_form_input_types.asp)
 
-Input fields can also be defined to have two different input modes, namely `numeric` or `email`. When set to one of these, mobile devices adjust the keyboard shown ot the user accordingly. 
+Input fields can also be defined to have two different input modes, namely `numeric` or `email`. When set to one of these, mobile devices adjust the keyboard shown ot the user accordingly. [Read More On Input Modes](https://www.w3schools.com/TAgs/att_inputmode.asp)
 
  https://github.com/stadium-software/textbox-types/assets/2085324/7854e18e-df60-4e1b-99a5-7fd1b8032395
 
